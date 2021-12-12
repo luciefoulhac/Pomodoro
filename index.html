@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Pomodoro // Vue.js</title>
+    <link rel="stylesheet" href="../../sites/all/themes/portfolio/css/layout.css" />
+    <link rel="stylesheet" href="/lab/pomodoro/css/common.css" />
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <link rel="icon" href="/lab/pomodoro/favicon.ico" type="image/x-icon">
+  </head>
+
+  <body>
+    <header class="lab">
+      <h1>Lab</h1>
+      <a href="../../" style="font-size:14px;">&lt; Retour au portfolio</a>
+    </header>
+    <div id="pomodoro">
+      <h2>Pomodoro</h2>
+      <h3>Stay focus</h3>
+
+      <div class="timer" :class="{ timerOn: this.timer, timerFinish: this.finish }">
+        {{ this.timeTxt }}
+        <canvas id="circle" v-bind="{ width: width, 'height': height }"></canvas> 
+      </div>
+
+      <button class="startAndStop" v-on:click="startAndStop" :disabled="finish == 1 ? true : false">{{ this.messageButtom }}</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/timrjs/latest/timr.min.js"></script>
+    <script src="/lab/pomodoro/js/application.js"></script>
+  </body>
+  </html>
